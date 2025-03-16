@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mohammed Ghayasuddin - Portfolio</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.15.0/devicon.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> <!-- Unique font -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+    }
+
+    .skill-card:hover,
+    .project-card:hover,
+    .job-item:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .skill-item {
+      width: 100px;
+      height: 100px;
+      background-color: #2d3748;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .skill-item:hover {
+      transform: scale(1.1);
+      background-color: #3182ce;
+    }
+
+    .skill-item i {
+      font-size: 2rem;
+      color: white;
+    }
+
+    .skill-item p {
+      margin-top: 8px;
+      color: white;
+      font-size: 0.85rem;
+    }
+
+    .project-card, .job-item {
+      background-color: #2d3748;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover, .job-item:hover {
+      transform: scale(1.05);
+      background-color: #3182ce;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #3182ce;
+    }
+
+    .company-logo {
+      max-width: 120px;
+      margin-bottom: 10px;
+    }
+
+    .job-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .job-item > h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .job-item > p {
+      text-align: center;
+      color: #b2b2b2;
+    }
+
+    .experience-section {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .experience-item {
+      flex: 1 1 40%;
+      padding: 1rem;
+      background-color: #2d3748;
+      border-radius: 12px;
+      margin: 1rem;
+    }
+
+    .experience-item > h3 {
+      color: white;
+      font-size: 1.25rem;
+    }
+
+    .experience-item > p {
+      color: #b2b2b2;
+    }
+
+    .experience-item .date {
+      font-size: 0.9rem;
+      color: #6b6b6b;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 w-full bg-gray-800 bg-opacity-70 z-50">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <a href="#" class="text-xl font-semibold text-white">Mohammed Ghayasuddin</a>
+      <nav>
+        <ul class="flex space-x-8 text-lg">
+          <li><a href="#about" class="hover:text-blue-400">About</a></li>
+          <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
+          <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+          <li><a href="#experience" class="hover:text-blue-400">Experience</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero h-screen flex items-center justify-center text-center text-white relative">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="relative z-10">
+      <img src="https://avatars.githubusercontent.com/u/159498268?s=400&u=4ed222093c79cdcea1af1f7c22b69e7c33856a90&v=4" alt="Mohammed Ghayasuddin" class="profile-img mx-auto mb-4">
+      <h1 class="text-5xl font-bold leading-tight">Hi, I'm Mohammed Ghayasuddin</h1>
+      <p class="mt-4 text-xl">A passionate Software Engineer | Cloud Enthusiast | Machine Learning Advocate</p>
+      <a href="#projects" class="mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition-all">See My Work</a>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-16 px-6 bg-gray-900 text-center">
+    <h2 class="text-4xl font-bold text-white">About Me</h2>
+    <p class="mt-4 max-w-2xl mx-auto text-lg">I’m a Master’s student in Computer Science at the University of New Brunswick, specializing in cloud computing, machine learning, and full-stack development. With hands-on experience across cloud-based infrastructure, microservices, and data-driven projects, I love solving real-world problems through innovative tech solutions.</p>
+    <div class="mt-6">
+      <a href="mailto:mghayasuddin2000@gmail.com" class="text-blue-400 hover:text-blue-600">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 px-6 bg-gray-800">
+    <h2 class="text-4xl font-bold text-center text-white">Skills</h2>
+    <div class="mt-8 skill-list">
+      <!-- Skill List with Icons and Labels -->
+      <div class="skill-item">
+        <i class="devicon-cplusplus-plain"></i>
+        <p>C++</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-java-plain"></i>
+        <p>Java</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-python-plain"></i>
+        <p>Python</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-javascript-plain"></i>
+        <p>JavaScript</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-typescript-plain"></i>
+        <p>TypeScript</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-html5-plain"></i>
+        <p>HTML</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-css3-plain"></i>
+        <p>CSS</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-tailwindcss-plain"></i>
+        <p>Tailwind CSS</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-react-original"></i>
+        <p>React.js</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-redux-plain"></i>
+        <p>Redux</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-nextjs-plain"></i>
+        <p>Next.js</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-spring-plain"></i>
+        <p>Spring</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-spring-plain"></i>
+        <p>Spring Boot</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-express-original"></i>
+        <p>Express.js</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-nodejs-plain"></i>
+        <p>Node.js</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-django-plain"></i>
+        <p>Django</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-mysql-plain"></i>
+        <p>MySQL</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-postgresql-plain"></i>
+        <p>PostgreSQL</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-mongodb-plain"></i>
+        <p>MongoDB</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-redis-plain"></i>
+        <p>Redis</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-apachekafka-original"></i> 
+        <p>Kafka</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-fastapi-plain"></i>
+        <p>FastAPI</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-postman-plain"></i>
+        <p>Postman</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-swagger-plain"></i>
+        <p>Swagger</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-git-plain"></i>
+        <p>Git</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-azure-plain"></i>
+        <p>Azure</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-amazonwebservices-plain-wordmark"></i>
+        <p>AWS</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-docker-plain"></i>
+        <p>Docker</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-kubernetes-plain"></i>
+        <p>Kubernetes</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-rest-plain"></i>
+        <p>REST</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-graphql-plain"></i>
+        <p>GraphQL</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-linux-plain"></i>
+        <p>Linux</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-tensorflow-original"></i>
+        <p>TensorFlow</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-keras-plain"></i>
+        <p>Keras</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-sdlc-plain"></i>
+        <p>SDLC</p>
+      </div>
+      <div class="skill-item">
+        <i class="devicon-devops-plain"></i>
+        <p>DevOps</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 px-6 bg-gray-800">
+    <h2 class="text-4xl font-bold text-center text-white">Projects</h2>
+    <div class="mt-8 flex flex-wrap justify-center">
+      <!-- Project Card 1 -->
+      <div class="project-card w-1/3 mx-2">
+        <h3 class="text-2xl font-semibold text-white">Zero-Knowledge Proof Blockchain-based Voting System</h3>
+        <p class="mt-2 text-lg">Developed a blockchain-based voting system using Solidity, Zero-Knowledge Proofs, and Ethereum to ensure secure, anonymous, and verifiable elections. Implemented a Django API service for voter registration and ballot submissions.</p>
+      </div>
+      <!-- Project Card 2 -->
+      <div class="project-card w-1/3 mx-2">
+        <h3 class="text-2xl font-semibold text-white">Data Lake Query Processing</h3>
+        <p class="mt-2 text-lg">Developed a data lake query system by integrating Apache Wayang, Apache Calcite, HDFS, and PostgreSQL, ensuring 40% faster query execution across heterogeneous data sources.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-16 px-6 bg-gray-800">
+    <h2 class="text-4xl font-bold text-center text-white">Experience</h2>
+    <div class="experience-section">
+      <!-- Experience Item 1 -->
+      <div class="experience-item">
+        <img src="https://arcticwolf.com/wp-content/uploads/2021/11/AW_LOGO_REVERSE-334.png" alt="Arctic Wolf Networks Logo" class="company-logo">
+        <h3 class="text-2xl font-semibold text-white">Developer Intern at Arctic Wolf Networks</h3>
+        <p class="text-lg">Engineered scalable Django microservices, integrated with ticketing platforms like ServiceNow and ConnectWise. Implemented event-driven architecture with Apache Kafka, optimized data streaming and inter-service communication.</p>
+        <p class="date">Sep 2024 – Dec 2024</p>
+      </div>
+      <!-- Experience Item 2 -->
+      <div class="experience-item">
+        <img src="https://www.unb.ca/webcomps/_css/unb_logo.png" alt="University of New Brunswick Logo" class="company-logo">
+        <h3 class="text-2xl font-semibold text-white">Software Engineer Intern at University of New Brunswick</h3>
+        <p class="text-lg">Designed and deployed a 3D point cloud visualization platform using Potree.js, integrated with AWS for scalable cloud deployment. Developed a MERN web app featuring custom annotation and measurement tools.</p>
+        <p class="date">May 2024 – Aug 2024</p>
+      </div>
+      <!-- Experience Item 3 -->
+      <div class="experience-item">
+        <img src="https://www.dbs.com/iwov-resources/flp/images/dbs_logo.svg" alt="DBS Bank Logo" class="company-logo">
+        <h3 class="text-2xl font-semibold text-white">Software Developer at DBS Bank</h3>
+        <p class="text-lg">Developed payment applications for remittance services using React (TypeScript), Spring Boot, PostgreSQL. Migrated legacy Kony payment services to microservices, improving transaction speed by 17%.</p>
+        <p class="date">Jul 2021 – Aug 2023</p>
+      </div>
+      <!-- Experience Item 4 -->
+      <div class="experience-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Virtusa_Logo.svg" alt="Virtusa Logo" class="company-logo">
+        <h3 class="text-2xl font-semibold text-white">Developer Intern at Virtusa Corporation</h3>
+        <p class="text-lg">Led cloud migration projects using Microsoft Azure, optimizing costs and scaling applications across hybrid environments. Implemented MuleSoft integration solutions to streamline on-premise to Azure migrations.</p>
+        <p class="date">Jan 2020 – Dec 2020</p>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
