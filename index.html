@@ -135,25 +135,229 @@
       font-size: 0.9rem;
       color: #6b6b6b;
     }
+    /* Keyframe for neon text color effect */
+    @keyframes neonTextEffect {
+      0% {
+        color: white;
+        text-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 15px #9b59b6;
+      }
+      25% {
+        color: white;
+        text-shadow: 0 0 5px #3498db, 0 0 10px #3498db, 0 0 15px #3498db;
+      }
+      50% {
+        color: white;
+        text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4, 0 0 15px #ff69b4;
+      }
+      75% {
+        color: white;
+        text-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 15px #9b59b6;
+      }
+      100% {
+        color: white;
+        text-shadow: 0 0 5px #9b59b6, 0 0 10px #9b59b6, 0 0 15px #9b59b6;
+      }
+    }
+
+    /* Apply to all text headings */
+    h1, h2, h3, h4, h5, h6 {
+      animation: neonTextEffect 8s infinite;
+    }
+
+    /* Hero Section with neon text effect */
+    .hero h1 {
+      font-size: 3rem;
+      animation: neonTextEffect 8s infinite;
+    }
+
+    /* About Me Section Title */
+    #about h2 {
+      font-size: 2.5rem;
+      animation: neonTextEffect 8s infinite;
+    }
+
+    /* Projects Section Title */
+    #projects h2 {
+      font-size: 2.5rem;
+      animation: neonTextEffect 8s infinite;
+    }
+
+    /* Project Titles */
+    .project-title {
+      font-size: 1.8rem;
+      animation: neonTextEffect 8s infinite;
+    }
+
+    /* Experience Section Title */
+    #experience h2 {
+      font-size: 2.5rem;
+      animation: neonTextEffect 8s infinite;
+    }
+
+    /* Experience Titles */
+    .experience-title {
+      font-size: 1.8rem;
+      animation: neonTextEffect 8s infinite;
+    }
+
+    /* Apply neon effect to navbar links */
+    .navbar a {
+      animation: neonTextEffect 8s infinite;
+      font-size: 1.2rem;
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    /* Hover effect for navbar links */
+    .navbar a:hover {
+      color: #3498db;
+    }
+
+    /* Navigation Bar Styles */
+    header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(31, 41, 55, 0.7);
+      z-index: 50;
+      padding: 0.5rem 1.5rem;
+    }
+
+    /* Container inside the header */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navbar links styling (default for desktop) */
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      gap: 2rem;
+    }
+
+    nav li {
+      padding: 5px;
+    }
+
+    /* Hamburger Menu (Mobile) */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger-line {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+    }
+
+    /* Mobile Navbar Menu (Hidden by default) */
+    .navbar-mobile {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: rgba(31, 41, 55, 0.9);
+      padding: 1rem 0;
+    }
+
+    .navbar-mobile ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Show the mobile menu when hamburger is clicked */
+    .navbar-mobile:not(.hidden) {
+      display: block;
+    }
+
+    /* Media query for mobile responsiveness */
+    @media (max-width: 768px) {
+      /* Hide desktop navbar and show hamburger menu */
+      .navbar {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .navbar-mobile {
+        display: none;
+      }
+    }
+
+    /* For desktop and above */
+    @media (min-width: 769px) {
+      /* Show the normal navbar */
+      .navbar {
+        display: block;
+      }
+
+      /* Hide the mobile hamburger */
+      .hamburger {
+        display: none;
+      }
+
+      /* Hide the mobile navbar */
+      .navbar-mobile {
+        display: none;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-gray-900 text-white">
 
   <!-- Navigation Bar -->
-  <header class="fixed top-0 w-full bg-gray-800 bg-opacity-70 z-50">
-    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-      <a href="#" class="text-xl font-semibold text-white">Mohammed Ghayasuddin</a>
-      <nav>
-        <ul class="flex space-x-8 text-lg">
-          <li><a href="#about" class="hover:text-blue-400">About</a></li>
-          <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
-          <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
-          <li><a href="#experience" class="hover:text-blue-400">Experience</a></li>
-        </ul>
-      </nav>
+<header class="fixed top-0 w-full bg-gray-800 bg-opacity-70 z-50">
+  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="#" class="text-xl font-semibold text-white">Mohammed Ghayasuddin</a>
+    
+    <!-- Hamburger Menu for Mobile -->
+    <div class="hamburger md:hidden" onclick="toggleMenu()">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
     </div>
-  </header>
+    
+    <!-- Navbar Links (Desktop version) -->
+    <nav class="navbar md:block hidden">
+      <ul class="flex space-x-8 text-lg">
+        <li><a href="#about" class="hover:text-blue-400">About</a></li>
+        <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
+        <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+        <li><a href="#experience" class="hover:text-blue-400">Experience</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Mobile Navbar (Initially Hidden) -->
+    <nav class="navbar-mobile md:hidden hidden">
+      <ul class="flex flex-col items-center space-y-4 text-lg">
+        <li><a href="#about" class="hover:text-blue-400">About</a></li>
+        <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
+        <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+        <li><a href="#experience" class="hover:text-blue-400">Experience</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Toggle menu for mobile responsiveness
+  function toggleMenu() {
+    const mobileNav = document.querySelector('.navbar-mobile');
+    mobileNav.classList.toggle('hidden');
+  }
+</script>
 
   <!-- Hero Section -->
   <section class="hero h-screen flex items-center justify-center text-center text-white relative">
@@ -332,12 +536,12 @@
     <h2 class="text-4xl font-bold text-center text-white">Projects</h2>
     <div class="mt-8 flex flex-wrap justify-center">
       <!-- Project Card 1 -->
-      <div class="project-card w-1/3 mx-2">
+      <div class="project-card w-full sm:w-1/3 mx-2">
         <h3 class="text-2xl font-semibold text-white">Zero-Knowledge Proof Blockchain-based Voting System</h3>
         <p class="mt-2 text-lg">Developed a blockchain-based voting system using Solidity, Zero-Knowledge Proofs, and Ethereum to ensure secure, anonymous, and verifiable elections. Implemented a Django API service for voter registration and ballot submissions.</p>
       </div>
       <!-- Project Card 2 -->
-      <div class="project-card w-1/3 mx-2">
+      <div class="project-card w-full sm:w-1/3 mx-2">
         <h3 class="text-2xl font-semibold text-white">Data Lake Query Processing</h3>
         <p class="mt-2 text-lg">Developed a data lake query system by integrating Apache Wayang, Apache Calcite, HDFS, and PostgreSQL, ensuring 40% faster query execution across heterogeneous data sources.</p>
       </div>
