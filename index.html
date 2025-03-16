@@ -312,6 +312,122 @@
         display: none;
       }
     }
+
+    /* Keyframe for bright neon background effect */
+    @keyframes neonBackgroundEffect {
+      0% {
+        background-color: #9b59b6; /* Bright purple */
+        box-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      }
+      25% {
+        background-color: #8a2be2; /* Bright Blue-Violet */
+        box-shadow: 0 0 20px #8a2be2, 0 0 40px #8a2be2, 0 0 60px #8a2be2;
+      }
+      50% {
+        background-color: #ff69b4; /* Hot pink */
+        box-shadow: 0 0 20px #ff69b4, 0 0 40px #ff69b4, 0 0 60px #ff69b4;
+      }
+      75% {
+        background-color: #ff1493; /* Deep pink */
+        box-shadow: 0 0 20px #ff1493, 0 0 40px #ff1493, 0 0 60px #ff1493;
+      }
+      100% {
+        background-color: #9b59b6; /* Bright purple */
+        box-shadow: 0 0 20px #9b59b6, 0 0 40px #9b59b6, 0 0 60px #9b59b6;
+      }
+    }
+
+    /* Apply to the Hero Section */
+    .hero {
+      background: #9b59b6;  /* Initial bright background color */
+      animation: neonBackgroundEffect 8s infinite;
+      padding: 100px 0;
+      text-align: center;
+      color: white;
+    }
+
+    /* Hero Section Text */
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    /**/
+
+     /* Keyframe for typing effect */
+    @keyframes typingEffect {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    /* Keyframe for blink effect (cursor blinking) */
+    @keyframes blinkEffect {
+      0% {
+        border-color: transparent;
+      }
+      100% {
+        border-color: white;
+      }
+    }
+
+    /* Hero Section with neon text effect */
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      overflow: hidden; /* Ensures text is hidden until typed */
+      white-space: nowrap; /* Prevents text from wrapping */
+      border-right: 3px solid white; /* Cursor-like effect */
+      width: 0; /* Initially hidden */
+      animation: typingEffect 4s steps(30) 1, blinkEffect 0.75s step-end infinite, neonTextEffect 8s infinite;
+      animation-delay: 0s, 4s; /* Delay blink animation after typing */
+      animation-iteration-count: 1; /* Only type once */
+    }
+
+    /* Hero Section with neon text effect */
+    .hero p {
+      font-size: 1.25rem;
+      margin-top: 20px;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 0;
+      animation: typingEffect 6s steps(50) 1, blinkEffect 0.75s step-end infinite, neonTextEffect 8s infinite;
+      animation-delay: 0s, 6s; /* Delay blink animation after typing */
+      animation-iteration-count: 1; /* Only type once */
+    }
+
+    /* Pause for 60 seconds before retyping */
+    .hero h1, .hero p {
+      animation: typingEffect 4s steps(30) 1, blinkEffect 0.75s step-end infinite, pauseEffect 60s forwards, removeCursor 0s forwards, neonTextEffect infinite forwards;
+      animation-delay: 0s, 4s, 4s, 10s; /* Type, blink, then pause for 60 seconds, then remove cursor */
+      animation-iteration-count: 1; /* Infinite loop */
+    }
+
+    /* Keyframe for pause (hold the text for 60 seconds after typing) */
+    @keyframes pauseEffect {
+      0% {
+        width: 100%; /* Keep the text visible */
+      }
+      100% {
+        width: 100%; /* Keep the text visible */
+      }
+    }
+
+    /* Keyframe to remove the cursor */
+    @keyframes removeCursor {
+      0% {
+        border-right: 3px solid white; /* Cursor visible */
+      }
+      100% {
+        border-right: none; /* Cursor disappears */
+      }
+    }
+
+    
+    
+    
   </style>
 </head>
 
@@ -360,15 +476,15 @@
 </script>
 
   <!-- Hero Section -->
-  <section class="hero h-screen flex items-center justify-center text-center text-white relative">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="relative z-10">
-      <img src="https://avatars.githubusercontent.com/u/159498268?s=400&u=4ed222093c79cdcea1af1f7c22b69e7c33856a90&v=4" alt="Mohammed Ghayasuddin" class="profile-img mx-auto mb-4">
-      <h1 class="text-5xl font-bold leading-tight">Hi, I'm Mohammed Ghayasuddin</h1>
-      <p class="mt-4 text-xl">A passionate Software Engineer | Cloud Enthusiast | Machine Learning Advocate</p>
-      <a href="#projects" class="mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition-all">See My Work</a>
-    </div>
-  </section>
+<section class="hero h-screen flex items-center justify-center text-center text-white relative">
+  <div class="absolute inset-0 bg-black opacity-50"></div>
+  <div class="relative z-10">
+    <img src="https://avatars.githubusercontent.com/u/159498268?s=400&u=4ed222093c79cdcea1af1f7c22b69e7c33856a90&v=4" alt="Mohammed Ghayasuddin" class="profile-img mx-auto mb-4">
+    <h1 class="text-5xl font-bold leading-tight">Hi, I'm Mohammed Ghayasuddin</h1>
+    <p class="mt-4 text-xl">A passionate Software Engineer | Cloud Enthusiast | Machine Learning Advocate</p>
+    <a href="#projects" class="mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition-all">See My Work</a>
+  </div>
+</section>
 
   <!-- About Me Section -->
   <section id="about" class="py-16 px-6 bg-gray-900 text-center">
